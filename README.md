@@ -1,1 +1,1 @@
-# silver-scraper
+# Silver Scraper
