@@ -8,3 +8,4 @@
 - New Deaths (for the current day)
 - Total Cases (for the selected country)
 - Total Deaths (for the selected country)
+- Total Recovery (for the selected country)
