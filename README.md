@@ -1,9 +1,9 @@
 # Silver Scraper
-### This is a webscraper with data visualization for Covid19 cases in following countries:
+### This is a webscraper with data visualization for Covid19 cases, for the following countries:
 - Saudi Arabia
 - Jordan
 
-### We scraped four needed columns:
+### We scraped five needed columns:
 - New Cases (for the current day)
 - New Deaths (for the current day)
 - Total Cases (for the selected country)
