@@ -6,6 +6,6 @@
 ### We scraped five needed columns:
 - New Cases (for the current day)
 - New Deaths (for the current day)
-- Total Cases (for the selected country)
-- Total Deaths (for the selected country)
-- Total Recovery (for the selected country)
+- Total Cases (for the selected countries)
+- Total Deaths (for the selected countries)
+- Total Recovery (for the selected countries)
