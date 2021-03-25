@@ -56,12 +56,12 @@ cov_data = cov_data.transpose()
 ksaData = cov_data.iloc[49:50]
 joData  = cov_data.iloc[43:44]
 #displaying both countries at once!
-# print((ksaData))
-# print((joData))
+print((ksaData))
+print((joData))
 
 #saving to .csv files
-# ksaData.to_csv("../data/ksaData/ksa6.csv", index = True, header=False)
-# joData.to_csv("../data/joData/jordan6.csv", index = True, header=False)
+ksaData.to_csv("../data/ksaData/ksa7.csv", index = True, header=False)
+joData.to_csv("../data/joData/jordan7.csv", index = True, header=False)
 
 #now we start the concating for all days
 col_names = ['date','country/region','new_cases','new_deaths','total_cases','total_deaths','total_recovery']
@@ -71,7 +71,7 @@ day3 = pd.read_csv('../data/joData/jordan3.csv', names=col_names)
 day4 = pd.read_csv('../data/joData/jordan4.csv', names=col_names)
 day5 = pd.read_csv('../data/joData/jordan5.csv', names=col_names)
 day6 = pd.read_csv('../data/joData/jordan6.csv', names=col_names)
-
+day7 = pd.read_csv('../data/joData/jordan7.csv', names=col_names)
 
 #lets concat using pd.concat() method
 data = pd.concat([day1,day2,day3,day4,day5,day6])
@@ -85,4 +85,4 @@ genData['total_cases'] = genData['total_cases'].str.replace(r'\W', '', regex=Tru
 genData['total_deaths'] = genData['total_deaths'].str.replace(r'\W', '', regex=True).astype('int')
 genData['total_recovery'] = genData['total_recovery'].str.replace(r'\W', '', regex=True).astype('int')
 
-print(genData)
+# print(genData)
