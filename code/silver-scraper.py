@@ -63,3 +63,26 @@ joData  = cov_data.iloc[43:44]
 ksaData.to_csv("../data/ksaData/ksa6.csv", index = True, header=False)
 joData.to_csv("../data/joData/jordan6.csv", index = True, header=False)
 
+#now we start the concating for all days
+col_names = ['date','country/region','new_cases','new_deaths','total_cases','total_deaths','total_recovery']
+day1 = pd.read_csv('../data/joData/jordan1.csv', names=col_names)
+day2 = pd.read_csv('../data/joData/jordan2.csv', names=col_names)
+day3 = pd.read_csv('../data/joData/jordan3.csv', names=col_names)
+day4 = pd.read_csv('../data/joData/jordan4.csv', names=col_names)
+day5 = pd.read_csv('../data/joData/jordan5.csv', names=col_names)
+day6 = pd.read_csv('../data/joData/jordan6.csv', names=col_names)
+
+
+#lets concat using pd.concat() method
+data = pd.concat([day1,day2,day3,day4,day5,day6])
+data.to_csv('../data/joData/gen.csv', index=False)
+
+#removing punctuation from all rows, then converting them all to int()
+genData = pd.read_csv('../data/joData/gen.csv')
+genData['new_cases'] = genData['new_cases'].str.replace(r'\W', '', regex=True).astype('int')
+genData['new_deaths'] = genData['new_deaths'].replace(r'\W', '', regex=True).astype('int')
+genData['total_cases'] = genData['total_cases'].str.replace(r'\W', '', regex=True).astype('int')
+genData['total_deaths'] = genData['total_deaths'].str.replace(r'\W', '', regex=True).astype('int')
+genData['total_recovery'] = genData['total_recovery'].str.replace(r'\W', '', regex=True).astype('int')
+
+print(genData)
