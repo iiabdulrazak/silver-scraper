@@ -60,8 +60,8 @@ joData  = cov_data.iloc[43:44]
 # print((joData))
 
 #saving to .csv files
-ksaData.to_csv("../data/ksaData/ksa6.csv", index = True, header=False)
-joData.to_csv("../data/joData/jordan6.csv", index = True, header=False)
+# ksaData.to_csv("../data/ksaData/ksa6.csv", index = True, header=False)
+# joData.to_csv("../data/joData/jordan6.csv", index = True, header=False)
 
 #now we start the concating for all days
 col_names = ['date','country/region','new_cases','new_deaths','total_cases','total_deaths','total_recovery']
