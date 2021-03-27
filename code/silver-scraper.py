@@ -14,10 +14,8 @@ print(f'Response Code: {req}')
 
 #now we gonna start by extracting all page data to start then EDA!
 soup = bf(req.content, 'html.parser')
-
 #now we gonna extract only the table its the important thing!
 res = soup.find(id="main_table_countries_today")
-
 #let us now extract the columns by just getting data between <td>!
 content = res.find_all('td')
 
@@ -29,7 +27,6 @@ for item in content:
 
 #making interval when new row in table starts
 interval = data.index("USA") - data.index("World")
-
 #Populate lists for dictionary
 countries    = data[1::interval]
 new_cases    = data[3::interval]
@@ -48,20 +45,14 @@ covid_tab = {"country/region":countries, "new_cases":new_cases, "new_deaths":new
 cov_data = pd.DataFrame.from_dict(covid_tab, orient='index')
 cov_data = cov_data.transpose()
 
-#now let us see the data
-# print(cov_data.head(2))
-
 #splitting needed countries into two variables,
 #and then we converting it into .csv file!
 ksaData = cov_data.iloc[49:50]
 joData  = cov_data.iloc[43:44]
-#displaying both countries at once!
-print((ksaData))
-print((joData))
 
 #saving to .csv files
-ksaData.to_csv("../data/ksaData/ksa7.csv", index = True, header=False)
-joData.to_csv("../data/joData/jordan7.csv", index = True, header=False)
+ksaData.to_csv("../data/ksaData/ksa8.csv", index = True, header=False)
+joData.to_csv("../data/joData/jordan8.csv", index = True, header=False)
 
 #now we start the concating for all days
 col_names = ['date','country/region','new_cases','new_deaths','total_cases','total_deaths','total_recovery']
@@ -72,9 +63,10 @@ day4 = pd.read_csv('../data/joData/jordan4.csv', names=col_names)
 day5 = pd.read_csv('../data/joData/jordan5.csv', names=col_names)
 day6 = pd.read_csv('../data/joData/jordan6.csv', names=col_names)
 day7 = pd.read_csv('../data/joData/jordan7.csv', names=col_names)
+day8 = pd.read_csv('../data/joData/jordan8.csv', names=col_names)
 
 #lets concat using pd.concat() method
-data = pd.concat([day1,day2,day3,day4,day5,day6])
+data = pd.concat([day1,day2,day3,day4,day5,day6,day7])
 data.to_csv('../data/joData/gen.csv', index=False)
 
 #removing punctuation from all rows, then converting them all to int()
