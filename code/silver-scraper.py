@@ -47,11 +47,9 @@ cov_data = cov_data.transpose()
 
 #splitting needed countries into two variables,
 #and then we converting it into .csv file!
-ksaData = cov_data.iloc[49:50]
 joData  = cov_data.iloc[43:44]
 
 #saving to .csv files
-ksaData.to_csv("../data/ksaData/ksa8.csv", index = True, header=False)
 joData.to_csv("../data/joData/jordan8.csv", index = True, header=False)
 
 #now we start the concating for all days
