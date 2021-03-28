@@ -47,10 +47,10 @@ cov_data = cov_data.transpose()
 
 #splitting needed countries into two variables,
 #and then we converting it into .csv file!
-joData  = cov_data.iloc[43:44]
+joData  = cov_data.iloc[42:43]
 
 #saving to .csv files
-joData.to_csv("../data/joData/jordan8.csv", index = True, header=False)
+joData.to_csv("../data/joData/jordan28.csv", index = True, header=False)
 
 #now we start the concating for all days
 col_names = ['date','country/region','new_cases','new_deaths','total_cases','total_deaths','total_recovery']
@@ -69,7 +69,10 @@ day12 = pd.read_csv('../data/joData/jordan12.csv', names=col_names)
 day13 = pd.read_csv('../data/joData/jordan13.csv', names=col_names)
 day14 = pd.read_csv('../data/joData/jordan14.csv', names=col_names)
 day15 = pd.read_csv('../data/joData/jordan15.csv', names=col_names)
-
+day16 = pd.read_csv('../data/joData/jordan16.csv', names=col_names)
+day17 = pd.read_csv('../data/joData/jordan17.csv', names=col_names)
+day18 = pd.read_csv('../data/joData/jordan18.csv', names=col_names)
+day19 = pd.read_csv('../data/joData/jordan19.csv', names=col_names)
 day20 = pd.read_csv('../data/joData/jordan20.csv', names=col_names)
 day21 = pd.read_csv('../data/joData/jordan21.csv', names=col_names)
 day22 = pd.read_csv('../data/joData/jordan22.csv', names=col_names)
@@ -81,7 +84,11 @@ day27 = pd.read_csv('../data/joData/jordan27.csv', names=col_names)
 day28 = pd.read_csv('../data/joData/jordan28.csv', names=col_names)
 
 #lets concat using pd.concat() method
-data = pd.concat([day20,day21,day22,day23,day24,day25,day26,day27,day28])
+data = pd.concat([day01,day02,day03,day04,day05,day06,day07,
+	day08,day09,day10,day11,day12,day13,day14,day15,day16,
+	day17,day18,day19,day20,day21,day22,day23,day24,day25,
+	day26,day27,day28])
+
 data.to_csv('../data/joData/gen.csv', index=False)
 
 #removing punctuation from all rows, then converting them all to int()
@@ -92,4 +99,4 @@ genData['total_cases'] = genData['total_cases'].str.replace(r'\W', '', regex=Tru
 genData['total_deaths'] = genData['total_deaths'].str.replace(r'\W', '', regex=True).astype('int')
 genData['total_recovery'] = genData['total_recovery'].str.replace(r'\W', '', regex=True).astype('int')
 
-# print(genData)
+print(genData)
