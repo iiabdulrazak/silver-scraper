@@ -54,6 +54,17 @@ joData.to_csv("../data/joData/jordan8.csv", index = True, header=False)
 
 #now we start the concating for all days
 col_names = ['date','country/region','new_cases','new_deaths','total_cases','total_deaths','total_recovery']
+day01 = pd.read_csv('../data/joData/jordan01.csv', names=col_names)
+day02 = pd.read_csv('../data/joData/jordan02.csv', names=col_names)
+day03 = pd.read_csv('../data/joData/jordan03.csv', names=col_names)
+day04 = pd.read_csv('../data/joData/jordan04.csv', names=col_names)
+day05 = pd.read_csv('../data/joData/jordan05.csv', names=col_names)
+day06 = pd.read_csv('../data/joData/jordan06.csv', names=col_names)
+day07 = pd.read_csv('../data/joData/jordan07.csv', names=col_names)
+day08 = pd.read_csv('../data/joData/jordan08.csv', names=col_names)
+day09 = pd.read_csv('../data/joData/jordan09.csv', names=col_names)
+day10 = pd.read_csv('../data/joData/jordan10.csv', names=col_names)
+
 day20 = pd.read_csv('../data/joData/jordan20.csv', names=col_names)
 day21 = pd.read_csv('../data/joData/jordan21.csv', names=col_names)
 day22 = pd.read_csv('../data/joData/jordan22.csv', names=col_names)
