@@ -62,9 +62,10 @@ day5 = pd.read_csv('../data/joData/jordan5.csv', names=col_names)
 day6 = pd.read_csv('../data/joData/jordan6.csv', names=col_names)
 day7 = pd.read_csv('../data/joData/jordan7.csv', names=col_names)
 day8 = pd.read_csv('../data/joData/jordan8.csv', names=col_names)
+day9 = pd.read_csv('../data/joData/jordan9.csv', names=col_names)
 
 #lets concat using pd.concat() method
-data = pd.concat([day1,day2,day3,day4,day5,day6,day7])
+data = pd.concat([day1,day2,day3,day4,day5,day6,day7,day8,day9])
 data.to_csv('../data/joData/gen.csv', index=False)
 
 #removing punctuation from all rows, then converting them all to int()
