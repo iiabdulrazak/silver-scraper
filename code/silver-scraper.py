@@ -47,8 +47,7 @@ cov_data = cov_data.transpose()
 
 #splitting needed countries into two variables,
 #and then we converting it into .csv file!
-joData  = cov_data.iloc[42:43]
-
+joData  = cov_data.iloc[41:42]
 #saving to .csv files
 joData.to_csv("../data/joData/jordan29.csv", index = True, header=False)
 
