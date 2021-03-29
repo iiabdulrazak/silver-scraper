@@ -50,7 +50,7 @@ cov_data = cov_data.transpose()
 joData  = cov_data.iloc[42:43]
 
 #saving to .csv files
-joData.to_csv("../data/joData/jordan28.csv", index = True, header=False)
+joData.to_csv("../data/joData/jordan29.csv", index = True, header=False)
 
 #now we start the concating for all days
 col_names = ['date','country/region','new_cases','new_deaths','total_cases','total_deaths','total_recovery']
@@ -82,12 +82,13 @@ day25 = pd.read_csv('../data/joData/jordan25.csv', names=col_names)
 day26 = pd.read_csv('../data/joData/jordan26.csv', names=col_names)
 day27 = pd.read_csv('../data/joData/jordan27.csv', names=col_names)
 day28 = pd.read_csv('../data/joData/jordan28.csv', names=col_names)
+day29 = pd.read_csv('../data/joData/jordan29.csv', names=col_names)
 
 #lets concat using pd.concat() method
 data = pd.concat([day01,day02,day03,day04,day05,day06,day07,
 	day08,day09,day10,day11,day12,day13,day14,day15,day16,
 	day17,day18,day19,day20,day21,day22,day23,day24,day25,
-	day26,day27,day28])
+	day26,day27,day28,day29])
 
 data.to_csv('../data/joData/gen.csv', index=False)
 
