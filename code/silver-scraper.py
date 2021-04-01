@@ -1,5 +1,6 @@
 try:
-	import glob
+	import os
+	import csv, glob
 	import pandas as pd
 	import requests as re
 	from bs4 import BeautifulSoup as bf
@@ -50,11 +51,11 @@ cov_data = cov_data.transpose()
 #and then we converting it into .csv file!
 joData  = cov_data.iloc[40:41]
 #saving to .csv files
-joData.to_csv("../data/joData/jordan4-01.csv", index = True, header=False)
+joData.to_csv("../data/joData/april/jordan01.csv", index = True, header=False)
 
 #now we start the concating for all days,
 #and lets concat using looping method
-path = ('../data/joData/march')
+path = ('../data/joData/march/')
 filesList = glob.glob(path + '/*.csv')
 with open(path + 'output.csv','w') as wf:
 	for file in filesList:
@@ -67,7 +68,7 @@ print('\nProcess Done... \nAll Data Concated to: output.csv')
 #and adding columns names
 col_names = ['date','country/region', 'new_cases', 'new_deaths', 'total_cases', 'total_deaths', 'total_recovery']
 
-genData = pd.read_csv('../data/joData/output.csv', names=col_names)
+genData = pd.read_csv('../data/joData/march/output.csv', names=col_names)
 genData['new_cases'] = genData['new_cases'].str.replace(r'\W', '', regex=True).astype('int')
 genData['new_deaths'] = genData['new_deaths'].replace(r'\W', '', regex=True).astype('int')
 genData['total_cases'] = genData['total_cases'].str.replace(r'\W', '', regex=True).astype('int')
