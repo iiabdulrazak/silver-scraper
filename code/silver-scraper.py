@@ -1,4 +1,5 @@
 try:
+	import glob
 	import pandas as pd
 	import requests as re
 	from bs4 import BeautifulSoup as bf
@@ -49,52 +50,28 @@ cov_data = cov_data.transpose()
 #and then we converting it into .csv file!
 joData  = cov_data.iloc[40:41]
 #saving to .csv files
-joData.to_csv("../data/joData/jordan31.csv", index = True, header=False)
+joData.to_csv("../data/joData/jordan4-01.csv", index = True, header=False)
 
-#now we start the concating for all days
-col_names = ['date','country/region','new_cases','new_deaths','total_cases','total_deaths','total_recovery']
-day01 = pd.read_csv('../data/joData/jordan01.csv', names=col_names)
-day02 = pd.read_csv('../data/joData/jordan02.csv', names=col_names)
-day03 = pd.read_csv('../data/joData/jordan03.csv', names=col_names)
-day04 = pd.read_csv('../data/joData/jordan04.csv', names=col_names)
-day05 = pd.read_csv('../data/joData/jordan05.csv', names=col_names)
-day06 = pd.read_csv('../data/joData/jordan06.csv', names=col_names)
-day07 = pd.read_csv('../data/joData/jordan07.csv', names=col_names)
-day08 = pd.read_csv('../data/joData/jordan08.csv', names=col_names)
-day09 = pd.read_csv('../data/joData/jordan09.csv', names=col_names)
-day10 = pd.read_csv('../data/joData/jordan10.csv', names=col_names)
-day11 = pd.read_csv('../data/joData/jordan11.csv', names=col_names)
-day12 = pd.read_csv('../data/joData/jordan12.csv', names=col_names)
-day13 = pd.read_csv('../data/joData/jordan13.csv', names=col_names)
-day14 = pd.read_csv('../data/joData/jordan14.csv', names=col_names)
-day15 = pd.read_csv('../data/joData/jordan15.csv', names=col_names)
-day16 = pd.read_csv('../data/joData/jordan16.csv', names=col_names)
-day17 = pd.read_csv('../data/joData/jordan17.csv', names=col_names)
-day18 = pd.read_csv('../data/joData/jordan18.csv', names=col_names)
-day19 = pd.read_csv('../data/joData/jordan19.csv', names=col_names)
-day20 = pd.read_csv('../data/joData/jordan20.csv', names=col_names)
-day21 = pd.read_csv('../data/joData/jordan21.csv', names=col_names)
-day22 = pd.read_csv('../data/joData/jordan22.csv', names=col_names)
-day23 = pd.read_csv('../data/joData/jordan23.csv', names=col_names)
-day24 = pd.read_csv('../data/joData/jordan24.csv', names=col_names)
-day25 = pd.read_csv('../data/joData/jordan25.csv', names=col_names)
-day26 = pd.read_csv('../data/joData/jordan26.csv', names=col_names)
-day27 = pd.read_csv('../data/joData/jordan27.csv', names=col_names)
-day28 = pd.read_csv('../data/joData/jordan28.csv', names=col_names)
-day29 = pd.read_csv('../data/joData/jordan29.csv', names=col_names)
-day30 = pd.read_csv('../data/joData/jordan30.csv', names=col_names)
-day31 = pd.read_csv('../data/joData/jordan31.csv', names=col_names)
+#now we start the concating for all days,
+#and lets concat using looping method
+path = ('../data/joData/')
+csv_file_list = glob.glob(path + '/*.csv')
+print(csv_file_list)
+with open(path + 'output.csv','w') as wf:
+	for file in csv_file_list:
+		with open(file) as rf:
+			for line in rf:
+				if line.strip():
+					if not line.endswith("\n"):
+						line+="\n"
+						wf.write(line)
 
-#lets concat using pd.concat() method
-data = pd.concat([day01,day02,day03,day04,day05,day06,day07,
-	day08,day09,day10,day11,day12,day13,day14,day15,day16,
-	day17,day18,day19,day20,day21,day22,day23,day24,day25,
-	day26,day27,day28,day29,day30,day31])
-
-data.to_csv('../data/joData/gen.csv', index=False)
+print('\nProcess Done... \nAll Data Concated to: output.csv')
 
 #removing punctuation from all rows, then converting them all to int()
-genData = pd.read_csv('../data/joData/gen.csv')
+#and adding columns names
+col_names = ['country/region', 'new_cases', 'new_deaths', 'total_cases', 'total_deaths', 'total_recovery']
+genData = pd.read_csv('../data/joData/output.csv', names=col_names)
 genData['new_cases'] = genData['new_cases'].str.replace(r'\W', '', regex=True).astype('int')
 genData['new_deaths'] = genData['new_deaths'].replace(r'\W', '', regex=True).astype('int')
 genData['total_cases'] = genData['total_cases'].str.replace(r'\W', '', regex=True).astype('int')
