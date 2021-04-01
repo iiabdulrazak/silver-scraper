@@ -55,10 +55,9 @@ joData.to_csv("../data/joData/jordan4-01.csv", index = True, header=False)
 #now we start the concating for all days,
 #and lets concat using looping method
 path = ('../data/joData/')
-csv_file_list = glob.glob(path + '/*.csv')
-print(csv_file_list)
+filesList = glob.glob(path + '/*.csv')
 with open(path + 'output.csv','w') as wf:
-	for file in csv_file_list:
+	for file in filesList:
 		with open(file) as rf:
 			for line in rf:
 				if line.strip():
