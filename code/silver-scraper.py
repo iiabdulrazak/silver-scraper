@@ -59,11 +59,7 @@ filesList = glob.glob(path + '/*.csv')
 with open(path + 'output.csv','w') as wf:
 	for file in filesList:
 		with open(file) as rf:
-			for line in rf:
-				if line.strip():
-					if not line.endswith("\n"):
-						line+="\n"
-						wf.write(line)
+			wf.write(rf.read().strip()+"\n")
 
 print('\nProcess Done... \nAll Data Concated to: output.csv')
 
