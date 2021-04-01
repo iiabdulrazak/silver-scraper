@@ -1,6 +1,5 @@
 try:
-	import os
-	import csv, glob
+	import glob
 	import pandas as pd
 	import requests as re
 	from bs4 import BeautifulSoup as bf
@@ -56,7 +55,7 @@ joData.to_csv("../data/joData/april/jordan01.csv", index = True, header=False)
 #now we start the concating for all days,
 #and lets concat using looping method
 path = ('../data/joData/march/')
-filesList = glob.glob(path + '/*.csv')
+filesList = glob.glob(path + '*.csv')
 with open(path + 'output.csv','w') as wf:
 	for file in filesList:
 		with open(file) as rf:
