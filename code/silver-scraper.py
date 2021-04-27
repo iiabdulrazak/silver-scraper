@@ -50,7 +50,7 @@ cov_data = cov_data.transpose()
 #and then we converting it into .csv file!
 joData  = cov_data.iloc[40:41]
 #saving to .csv files
-joData.to_csv("../data/joData/april/jordan26.csv", index = True, header=False)
+joData.to_csv("../data/joData/april/jordan28.csv", index = True, header=False)
 
 #now we start the concating for all days,
 #and lets concat using looping method
