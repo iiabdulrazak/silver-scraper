@@ -48,7 +48,7 @@ cov_data = cov_data.transpose()
 
 #splitting needed countries into two variables,
 #and then we converting it into .csv file!
-joData  = cov_data.iloc[40:41]
+joData  = cov_data.iloc[41:42]
 #saving to .csv files
 joData.to_csv("../data/joData/april/jordan28.csv", index = True, header=False)
 
@@ -67,7 +67,7 @@ print('\nProcess Done... \nAll Data Concated to: output.csv')
 #and adding columns names
 col_names = ['date','country/region', 'new_cases', 'new_deaths', 'total_cases', 'total_deaths', 'total_recovery']
 
-genData = pd.read_csv('../data/joData/march/output.csv', names=col_names)
+genData = pd.read_csv('../data/joData/april/output.csv', names=col_names)
 genData['new_cases'] = genData['new_cases'].str.replace(r'\W', '', regex=True).astype('int')
 genData['new_deaths'] = genData['new_deaths'].replace(r'\W', '', regex=True).astype('int')
 genData['total_cases'] = genData['total_cases'].str.replace(r'\W', '', regex=True).astype('int')
