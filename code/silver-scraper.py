@@ -49,4 +49,4 @@ cov_data = cov_data.transpose()
 #and then we converting it into .csv file!
 joData  = cov_data.iloc[41:42]
 #saving to .csv files
-joData.to_csv("../data/joData/april/jordan28.csv", index = True, header=False)
+joData.to_csv("../data/joData/april/jordan29.csv", index = True, header=False)
