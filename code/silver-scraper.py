@@ -49,4 +49,15 @@ cov_data = cov_data.transpose()
 #and then we converting it into .csv file!
 joData  = cov_data.iloc[41:42]
 #saving to .csv files
-joData.to_csv("../data/joData/april/jordan30.csv", index = True, header=False)
+joData.to_csv("../data/joData/may/jordan02.csv", index = True, header=False)
+
+#now we start the concating for all days,
+#and lets concat using looping method
+path = ('../data/joData/may/')
+filesList = glob.glob(path + '*.csv')
+with open(path + 'data/joData/all_months/may.csv','w') as wf:
+	for file in filesList:
+		with open(file) as rf:
+			wf.write(rf.read().strip()+"\n")
+
+print('\nProcess Done... \nAll Data Concated to: may.csv')
